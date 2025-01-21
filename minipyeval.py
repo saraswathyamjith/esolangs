@@ -101,7 +101,8 @@ import re
 from openai import OpenAI
 
 # Uncomment the line below and replace 'your-api-key' with your actual API key
-# os.environ["OPENAI_API_KEY"] = 'your-api-key'
+os.environ["OPENAI_API_KEY"] = 'your-api-key'
+
 
 results = []
 client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
@@ -115,6 +116,91 @@ def mod_prompt(prompt):
 
     )
    return modified_prompt
+
+import os
+import subprocess
+import tempfile
+import re
+
+def execute_py_code(code: str, input_data: str = "") -> str:
+    """
+    Executes Python code and returns the output.
+    """
+    try:
+        # Create a temporary file to hold the Python code
+        with tempfile.NamedTemporaryFile(mode="w+", suffix=".py", delete=False) as temp_py:
+            temp_py_path = temp_py.name
+            temp_py.write(code)
+
+        try:
+            # Execute the Python code
+            result = subprocess.run(
+                ['python3', temp_py_path],
+                input=input_data,
+                capture_output=True,
+                text=True,
+                timeout=5  # Adjust the timeout as needed
+            )
+
+            # Check for errors during execution
+            if result.returncode != 0:
+                return f"Error: {result.stderr.strip()}"
+
+            # Return the standard output from the script
+            return result.stdout.strip()
+
+        finally:
+            # Clean up the temporary file
+            os.remove(temp_py_path)
+
+    except subprocess.TimeoutExpired:
+        return "Error: Execution timed out."
+    except Exception as e:
+        return f"Error during execution: {str(e)}"
+
+def test_py_function(py_code: str, func_name: str, args: list, input_data: str = "") -> str:
+    """
+    Extracts function definitions from Python code, handles lambda and def functions,
+    calls the specified function with arguments, executes the combined code, and returns the output.
+    """
+    try:
+        # Check for traditional function definitions
+        pattern_def = rf"def\s+{re.escape(func_name)}\s*\((.*?)\):\s*(.*?)\n(?=def\s|\Z)"
+        match_def = re.search(pattern_def, py_code, re.DOTALL)
+
+        # Check for lambda functions
+        pattern_lambda = rf"{re.escape(func_name)}\s*=\s*lambda\s*(.*?):(.*)"
+        match_lambda = re.search(pattern_lambda, py_code, re.DOTALL)
+
+        extracted_functions = ""
+
+        if match_def:
+            # If a traditional function is found, extract it
+            args_str, body = match_def.groups()
+            body_lines = body.strip().split('\n')
+            indented_body = '\n'.join([f"    {line}" for line in body_lines])
+            extracted_functions += f"def {func_name}({args_str}):\n{indented_body}\n\n"
+        elif match_lambda:
+            # If a lambda function is found, convert it to a def function
+            args_str, body = match_lambda.groups()
+            extracted_functions += f"def {func_name}({args_str.strip()}):\n    return {body.strip()}\n\n"
+        else:
+            return f"Error: Function '{func_name}' not found in the provided code."
+
+        # Prepare the function call
+        args_str = ', '.join(map(str, args))
+        function_call = f"print({func_name}({args_str}))\n"
+
+        # Combine the extracted function(s) with the function call
+        combined_code = extracted_functions + function_call
+
+        # Execute the combined code
+        output = execute_py_code(combined_code, input_data)
+
+        return output
+
+    except Exception as e:
+        return f"Error during testing: {str(e)}"
 
 # Commented out IPython magic to ensure Python compatibility.
 # collects human eval problems from github
@@ -425,93 +511,8 @@ for result in results:
     print(f"Non executable via python interpretor: {result['pythonpass']}")
     if result['pass'] == True:
       passed += 1
-    if result['pythonpass'] == True:
+    if result['pass'] == True and result['pythonpass'] == True:
       nonexecut += 1
 
 print(f"Passed: {passed}/{len(results)}")
 print(f"Passed + not executable by pthon: {nonexecut}/{len(results)}")
-
-import os
-import subprocess
-import tempfile
-import re
-
-def execute_py_code(code: str, input_data: str = "") -> str:
-    """
-    Executes Python code and returns the output.
-    """
-    try:
-        # Create a temporary file to hold the Python code
-        with tempfile.NamedTemporaryFile(mode="w+", suffix=".py", delete=False) as temp_py:
-            temp_py_path = temp_py.name
-            temp_py.write(code)
-
-        try:
-            # Execute the Python code
-            result = subprocess.run(
-                ['python3', temp_py_path],
-                input=input_data,
-                capture_output=True,
-                text=True,
-                timeout=5  # Adjust the timeout as needed
-            )
-
-            # Check for errors during execution
-            if result.returncode != 0:
-                return f"Error: {result.stderr.strip()}"
-
-            # Return the standard output from the script
-            return result.stdout.strip()
-
-        finally:
-            # Clean up the temporary file
-            os.remove(temp_py_path)
-
-    except subprocess.TimeoutExpired:
-        return "Error: Execution timed out."
-    except Exception as e:
-        return f"Error during execution: {str(e)}"
-
-def test_py_function(py_code: str, func_name: str, args: list, input_data: str = "") -> str:
-    """
-    Extracts function definitions from Python code, handles lambda and def functions,
-    calls the specified function with arguments, executes the combined code, and returns the output.
-    """
-    try:
-        # Check for traditional function definitions
-        pattern_def = rf"def\s+{re.escape(func_name)}\s*\((.*?)\):\s*(.*?)\n(?=def\s|\Z)"
-        match_def = re.search(pattern_def, py_code, re.DOTALL)
-
-        # Check for lambda functions
-        pattern_lambda = rf"{re.escape(func_name)}\s*=\s*lambda\s*(.*?):(.*)"
-        match_lambda = re.search(pattern_lambda, py_code, re.DOTALL)
-
-        extracted_functions = ""
-
-        if match_def:
-            # If a traditional function is found, extract it
-            args_str, body = match_def.groups()
-            body_lines = body.strip().split('\n')
-            indented_body = '\n'.join([f"    {line}" for line in body_lines])
-            extracted_functions += f"def {func_name}({args_str}):\n{indented_body}\n\n"
-        elif match_lambda:
-            # If a lambda function is found, convert it to a def function
-            args_str, body = match_lambda.groups()
-            extracted_functions += f"def {func_name}({args_str.strip()}):\n    return {body.strip()}\n\n"
-        else:
-            return f"Error: Function '{func_name}' not found in the provided code."
-
-        # Prepare the function call
-        args_str = ', '.join(map(str, args))
-        function_call = f"print({func_name}({args_str}))\n"
-
-        # Combine the extracted function(s) with the function call
-        combined_code = extracted_functions + function_call
-
-        # Execute the combined code
-        output = execute_py_code(combined_code, input_data)
-
-        return output
-
-    except Exception as e:
-        return f"Error during testing: {str(e)}"
