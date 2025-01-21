@@ -60,7 +60,3 @@ Below is the problem set used for **Pythsimple.py** and **LLAMApythsimple.py**:
 15. Given two numbers `a` and `b`, return the absolute difference between them.
 16. Given a string `s` and a number `n`, return the string repeated `n` times.
 
----
-
-## Repository Structure
-
