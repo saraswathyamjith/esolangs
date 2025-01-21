@@ -1,8 +1,9 @@
 # esolangs
-  Minipyeval.py evaluates OPENAI's gpt-4o-mini writing code in the esolang Minipy, a shortened version of Python, on the HumanEval benchmark, achieving a 80.0% accuracy on a subset of 30 problems. 
-  Pytheval.py evaluates OPENAI's gpt-4o-mini writing code in the esolang Pyth on the HumanEval benchmark, achieving a 0.0% accuracy on a subset of 10 problems.
-  Pythsimple.py evaluates OPENAI's gpt-4o-mini writing code in the esolang Pyth on a very simplistic problem set of basic Python problems, achieving a 12.50% accuracy on the 16 problems defined below.
-  llamaminieval.py evaluates Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo for writing code in the esolang Minipy, a shortened version of Python, on the HumanEval benchmark, achieving a 76.67% accuracy on a subset of 30 problems. 
+  Minipyeval.py evaluates OPENAI's gpt-4o-mini writing code in the esolang Minipy, a shortened version of Python, on the HumanEval benchmark, achieving a 80.0% accuracy on a subset of 30 problems.  <br> 
+  Pytheval.py evaluates OPENAI's gpt-4o-mini writing code in the esolang Pyth on the HumanEval benchmark, achieving a 0.0% accuracy on a subset of 10 problems.  <br> 
+  Pythsimple.py evaluates OPENAI's gpt-4o-mini writing code in the esolang Pyth on a very simplistic problem set of basic Python problems, achieving a 12.50% accuracy on the 16 problems defined below.  <br> 
+  LLAMAminieval.py evaluates Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo for writing code in the esolang Minipy, a shortened version of Python, on the HumanEval benchmark, achieving a 76.67% accuracy on a subset of 30 problems.  <br> 
+  LLAMApythsimple.py evaluates  Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo writing code in the esolang Pyth on a very simplistic problem set of basic Python problems, achieving a 18.75% accuracy on the 16 problems defined below. 
 
 Simple Problems for Pyth benchmarks: 
 1. Print hello world
