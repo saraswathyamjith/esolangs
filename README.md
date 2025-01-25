@@ -69,7 +69,7 @@ Below is the problem set used for **Pythsimple.py** and **LLAMApythsimple.py**:
 24. Given a list of numbers, return the sum of all numbers in the list.
 25. Given a number `n`,, return its binary representation as a string.
 26. Given two strings `s1` and `s2`, return True if s1 is an anagram of s2, else False.
-27. Given a number n, return the sum of digits in n.
+27. Given a number `n`, return the sum of digits in n.
 28. Given a list of numbers, return True if all numbers are even, else False.
 29. Given a string `s`, return the string in title case.
 30. Given two numbers  `a` and `b`, return True if a is divisible by b, else False.
