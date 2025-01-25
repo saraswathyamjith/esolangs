@@ -59,4 +59,18 @@ Below is the problem set used for **Pythsimple.py** and **LLAMApythsimple.py**:
 14. Given a string `s`, return `True` if all characters in the string are vowels, else `False`.
 15. Given two numbers `a` and `b`, return the absolute difference between them.
 16. Given a string `s` and a number `n`, return the string repeated `n` times.
-
+17. Given a number `n`, return the Fibonacci sequence up to the nth term.
+18. Given a list of numbers, return the maximum number.
+19. Given a string `s` , return True if it is a palindrome, else False.
+20. Given two numbers `a` and `b`, return their greatest common divisor.
+21. Given a list of numbers, return the list sorted in ascending order.
+22. Given a number `n`, return True if it is a perfect square, else False.
+23. Given a string  `s` , return the number of vowels in the string.
+24. Given a list of numbers, return the sum of all numbers in the list.
+25. Given a number `n`,, return its binary representation as a string.
+26. Given two strings `s1` and `s2`, return True if s1 is an anagram of s2, else False.
+27. Given a number n, return the sum of digits in n.
+28. Given a list of numbers, return True if all numbers are even, else False.
+29. Given a string `s`, return the string in title case.
+30. Given two numbers  `a` and `b`, return True if a is divisible by b, else False.
+    
