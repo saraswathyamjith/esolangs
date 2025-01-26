@@ -40,7 +40,7 @@ A concise esolang inspired by Python, tested on two benchmarks:
   - **Subset**: 30 problems
 
 ### Janus
-A reversible programming language. 
+A reversible programming language. Since the 0.00% accuracy was alarming and raised red flags, the researcher also manually pasted in generated code to https://topps.diku.dk/pirc/?id=janusP, where it also failed to compile with the same errors for a subset of 5 problems. 
 
 - **`JanusSimple.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in Pyth on a simplistic problem set of basic Python problems.  
