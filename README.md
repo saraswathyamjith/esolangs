@@ -2,6 +2,8 @@
 
 This repository evaluates the performance of various AI models on esolangs (esoteric programming languages) benchmarks, including **Minipy** and **Pyth**, using datasets like the HumanEval benchmark and custom problem sets.
 
+This repository also provides the documentation and examples that were fed in as context during testing. 
+
 ---
 
 ## Benchmarks Overview
@@ -29,19 +31,32 @@ A concise esolang inspired by Python, tested on two benchmarks:
 
 - **`Pythsimple.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in Pyth on a simplistic problem set of basic Python problems.  
-  - **Accuracy**: 12.50%  
-  - **Subset**: 16 problems
+  - **Accuracy**: 10.00%  
+  - **Subset**: 30 problems
 
 - **`LLAMApythsimple.py`**  
   Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in Pyth on the same simplistic problem set.  
-  - **Accuracy**: 18.75%  
-  - **Subset**: 16 problems
+  - **Accuracy**: 20.00%  
+  - **Subset**: 30 problems
+
+### Janus
+A reversible programming language. 
+
+- **`JanusSimple.py`**  
+  Evaluates **OpenAI's gpt-4o-mini** for code generation in Pyth on a simplistic problem set of basic Python problems.  
+  - **Accuracy**: 0.00%  
+  - **Subset**: 30 problems
+
+- **`LLAMAJabusSimple.py`**  
+  Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in Pyth on the same simplistic problem set.  
+  - **Accuracy**: N/A
+  - **Subset**: 30 problems
 
 ---
 
 ## Simple Problems for Pyth, 0815, and Janus Benchmarks
 
-Below is the problem set used for **Pythsimple.py** and **LLAMApythsimple.py**:
+Below is the problem set used for evaluating esolangs that are more divergent from standard languages. The problem set was tested via OPENAI's gpt-4o-mini which achieved a 93.33% accuracy in Python. Since it achieved such high accuracy, these problems are able to be labeled as a standard, simple benchmark. 
 
 1. Print "hello world".
 2. Given a number `n` as input, return the `n`th factorial number.
