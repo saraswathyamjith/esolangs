@@ -39,7 +39,7 @@ A concise esolang inspired by Python, tested on two benchmarks:
 
 ---
 
-## Simple Problems for Pyth Benchmarks
+## Simple Problems for Pyth, 0815, and Janus Benchmarks
 
 Below is the problem set used for **Pythsimple.py** and **LLAMApythsimple.py**:
 
