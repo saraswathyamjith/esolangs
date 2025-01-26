@@ -49,7 +49,7 @@ A reversible programming language.
 
 - **`LLAMAJabusSimple.py`**  
   Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in Pyth on the same simplistic problem set.  
-  - **Accuracy**: N/A
+  - **Accuracy**: 0.00%  
   - **Subset**: 30 problems
 
 ---
