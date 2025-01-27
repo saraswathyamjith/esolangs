@@ -1,15 +1,15 @@
 # Esolangs Benchmarking with AI Models
 
-This repository evaluates the performance of various AI models on esolangs (esoteric programming languages) benchmarks, including **Minipy** and **Pyth**, using datasets like the HumanEval benchmark and custom problem sets.
+This repository evaluates the performance of various AI models on benchmarks for coding in esolangs (esoteric programming languages) , including **Minipy**, **Pyth**, **Janus**, and **0815** using datasets like the HumanEval benchmark and a custom created problem set encompassing 30 of the most basic, simple programs, named, EsoEval.
 
-This repository also provides the documentation and examples that were fed in as context during testing. 
+This repository also provides the documentation and examples that were fed in during in-context learning. 
 
 ---
 
 ## Benchmarks Overview
 
 ### Minipy
-A shortened version of Python used as an esolang for benchmarking.
+A shortened version of Python used as an esolang for benchmarking. Due to relatively high accuracy on HumanEval, we did not test on the EsoEval collection of simple problems.  
 
 - **`Minipyeval.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in Minipy on the HumanEval benchmark.  
@@ -22,7 +22,7 @@ A shortened version of Python used as an esolang for benchmarking.
   - **Subset**: 30 problems
 
 ### 0815
-An esolang 0815 is based around a queue and 3 registers. It only understands hexadecimal, so every numeric input and output is in hexadecimal. Everything that is not an instruction is a comment.
+0815 is an esolang based around a queue and 3 registers. It only understands hexadecimal, so every numeric input and output is in hexadecimal. Everything that is not an instruction is a comment. 0815 has been tested on two benchmarks, both HumanEval and our own EsoEval (collection of simple problems).
 
 - **`0815val.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in 0815 on the HumanEval benchmark with a two-shot approach.  
@@ -39,9 +39,10 @@ An esolang 0815 is based around a queue and 3 registers. It only understands hex
   - **Accuracy**: 0.00%  
   - **Subset**: 30 problems
 
+Interestingly, the LLAMA models are much better at coding in Pyth or Minipy than they are at 0815...
 
 ### Pyth
-A concise esolang inspired by Python, tested on two benchmarks:
+A concise esolang inspired by Python tested on two benchmarks, both HumanEval and our own EsoEval (collection of simple problems).
 
 - **`Pytheval.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in Pyth on the HumanEval benchmark with a two-shot approach.  
@@ -59,7 +60,7 @@ A concise esolang inspired by Python, tested on two benchmarks:
   - **Subset**: 30 problems
 
 ### Janus
-A reversible programming language. Since the 0.00% accuracy was alarming and raised red flags, the researcher also manually pasted in generated code to https://topps.diku.dk/pirc/?id=janusP, where it also failed to compile with the same errors for a subset of 5 problems. 
+A reversible programming language. Since the 0.00% accuracy via OpenAI's gpt-4o-mini was alarming and raised red flags, the researcher also manually pasted in generated code to https://topps.diku.dk/pirc/?id=janusP, where it also failed to compile with the same errors for a subset of 5 problems. 
 
 - **`JanusSimple.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in Pyth on a simplistic problem set of basic Python problems.  
@@ -73,7 +74,7 @@ A reversible programming language. Since the 0.00% accuracy was alarming and rai
 
 ---
 
-## Simple Problems for Pyth, 0815, and Janus Benchmarks
+## EsoEval: Simple Problems for Pyth, 0815, and Janus Benchmarks
 
 Below is the problem set used for evaluating esolangs that are more divergent from standard languages. The problem set was tested via OPENAI's gpt-4o-mini which achieved a 93.33% accuracy in Python. Since it achieved such high accuracy, these problems are able to be labeled as a standard, simple benchmark. 
 
