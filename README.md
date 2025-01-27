@@ -21,6 +21,25 @@ A shortened version of Python used as an esolang for benchmarking.
   - **Accuracy**: 76.67%  
   - **Subset**: 30 problems
 
+### 0815
+An esolang 0815 is based around a queue and 3 registers. It only understands hexadecimal, so every numeric input and output is in hexadecimal. Everything that is not an instruction is a comment.
+
+- **`0815val.py`**  
+  Evaluates **OpenAI's gpt-4o-mini** for code generation in 0815 on the HumanEval benchmark.  
+  - **Accuracy**: N/A
+  - **Subset**: 10 problems
+
+- **`0815simple.py`**  
+  Evaluates **OpenAI's gpt-4o-mini** for code generation in 0815 on a simplistic problem set of basic Python problems.  
+  - **Accuracy**: 26.67%
+  - **Subset**: 30 problems
+
+- **`LLAMA0815simple.py`**  
+  Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in 0815 on the same simplistic problem set.  
+  - **Accuracy**: 0.00%  
+  - **Subset**: 30 problems
+
+
 ### Pyth
 A concise esolang inspired by Python, tested on two benchmarks:
 
