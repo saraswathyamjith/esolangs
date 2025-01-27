@@ -11,12 +11,12 @@ This repository also provides the documentation and examples that were fed in du
 ### Minipy
 A shortened version of Python used as an esolang for benchmarking. Due to relatively high accuracy on HumanEval, we did not test on the EsoEval collection of simple problems.  
 
-- **`Minipyeval.py`**  
+- **`MiniPyHumanEval.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in Minipy on the HumanEval benchmark.  
   - **Accuracy**: 80.0%  
   - **Subset**: 30 problems
 
-- **`LLAMAminieval.py`**  
+- **`MiniPyLLAMAHumanEval.py`**  
   Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in Minipy on the HumanEval benchmark.  
   - **Accuracy**: 76.67%  
   - **Subset**: 30 problems
@@ -24,17 +24,17 @@ A shortened version of Python used as an esolang for benchmarking. Due to relati
 ### 0815
 0815 is an esolang based around a queue and 3 registers. It only understands hexadecimal, so every numeric input and output is in hexadecimal. Everything that is not an instruction is a comment. 0815 has been tested on two benchmarks, both HumanEval and our own EsoEval (collection of simple problems).
 
-- **`0815val.py`**  
+- **`0815HumanEval.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in 0815 on the HumanEval benchmark with a two-shot approach.  
   - **Accuracy**: 0.0%
   - **Subset**: 10 problems
 
-- **`0815simple.py`**  
+- **`0815EsoEval.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in 0815 on a simplistic problem set of basic Python problems.  
   - **Accuracy**: 26.67%
   - **Subset**: 30 problems
 
-- **`LLAMA0815simple.py`**  
+- **`0815LLAMAEsoEval.py`**  
   Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in 0815 on the same simplistic problem set.  
   - **Accuracy**: 0.00%  
   - **Subset**: 30 problems
@@ -44,17 +44,17 @@ Interestingly, the LLAMA models are much better at coding in Pyth or Minipy than
 ### Pyth
 A concise esolang inspired by Python tested on two benchmarks, both HumanEval and our own EsoEval (collection of simple problems).
 
-- **`Pytheval.py`**  
+- **`PythHumanEval.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in Pyth on the HumanEval benchmark with a two-shot approach.  
   - **Accuracy**: 0.0%  
   - **Subset**: 10 problems
 
-- **`Pythsimple.py`**  
+- **`PythEsoEval.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in Pyth on a simplistic problem set of basic Python problems.  
   - **Accuracy**: 10.00%  
   - **Subset**: 30 problems
 
-- **`LLAMApythsimple.py`**  
+- **`PythLLAMAEsoEval.py`**  
   Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in Pyth on the same simplistic problem set.  
   - **Accuracy**: 20.00%  
   - **Subset**: 30 problems
