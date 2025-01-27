@@ -62,12 +62,12 @@ A concise esolang inspired by Python tested on two benchmarks, both HumanEval an
 ### Janus
 A reversible programming language. Since the 0.00% accuracy via OpenAI's gpt-4o-mini was alarming and raised red flags, the researcher also manually pasted in generated code to https://topps.diku.dk/pirc/?id=janusP, where it also failed to compile with the same errors for a subset of 5 problems. 
 
-- **`JanusSimple.py`**  
+- **`JanusEsoEval.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in Pyth on a simplistic problem set of basic Python problems.  
   - **Accuracy**: 0.00%  
   - **Subset**: 30 problems
 
-- **`LLAMAJanusSimple.py`**  
+- **`JanusLLAMAEsoEval.py`**  
   Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in Pyth on the same simplistic problem set.  
   - **Accuracy**: 0.00%  
   - **Subset**: 30 problems
