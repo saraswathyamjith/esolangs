@@ -13,11 +13,17 @@ A shortened version of Python used as an esolang for benchmarking. Due to relati
 
 - **`MiniPyHumanEval.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in Minipy on the HumanEval benchmark.  
-  - **Accuracy**: 80.0%
-  - **Non executable by Python + Passed**: 80.0%  
+  - **Accuracy**: 66.67%
+  - **Non executable by Python + Passed**: 0.0%  
   - **Subset**: 30 problems
 
 - **`MiniPyLLAMAHumanEval.py`**  
+  Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in Minipy on the HumanEval benchmark.  
+  - **Accuracy**: 66.67%
+  - **Non executable by Python + Passed**: 10.0%  
+  - **Subset**: 30 problems
+
+- **`MiniPyDeepSeekHumanEval.py`**  
   Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in Minipy on the HumanEval benchmark.  
   - **Accuracy**: 66.67%
   - **Non executable by Python + Passed**: 10.0%  
