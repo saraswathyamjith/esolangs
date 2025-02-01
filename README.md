@@ -24,9 +24,9 @@ A shortened version of Python used as an esolang for benchmarking. Due to relati
   - **Subset**: 30 problems
 
 - **`MiniPyDeepSeekHumanEval.py`**  
-  Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in Minipy on the HumanEval benchmark.  
-  - **Accuracy**: 66.67%
-  - **Non executable by Python + Passed**: 10.0%  
+  Evaluates **DEEPSEEK V3** for code generation in Minipy on the HumanEval benchmark.  
+  - **Accuracy**: 15.38%
+  - **Non executable by Python + Passed**: 7.69%
   - **Subset**: 30 problems
 
 ### 0815
