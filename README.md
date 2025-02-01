@@ -3,7 +3,6 @@
 This repository evaluates the performance of various AI models on benchmarks for coding in esolangs (esoteric programming languages) , including **Minipy**, **Pyth**, **Janus**, and **0815** using datasets like the HumanEval benchmark and a custom created problem set encompassing 30 of the most basic, simple programs, named, EsoEval.
 
 This repository also provides the documentation and examples that were fed in during in-context learning. 
-
 ---
 
 ## Benchmarks Overview
@@ -27,7 +26,7 @@ A shortened version of Python used as an esolang for benchmarking. Due to relati
   Evaluates **DEEPSEEK V3** for code generation in Minipy on the HumanEval benchmark.  
   - **Accuracy**: 15.38%
   - **Non executable by Python + Passed**: 7.69%
-  - **Subset**: 30 problems
+  - **Subset**: 15 problems
 
 ### 0815
 0815 is an esolang based around a queue and 3 registers. It only understands hexadecimal, so every numeric input and output is in hexadecimal. Everything that is not an instruction is a comment. 0815 has been tested on two benchmarks, both HumanEval and our own EsoEval (collection of simple problems).
@@ -46,6 +45,11 @@ A shortened version of Python used as an esolang for benchmarking. Due to relati
   Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in 0815 on the same simplistic problem set.  
   - **Accuracy**: 0.00%  
   - **Subset**: 30 problems
+ 
+- **`0815DeepseekEsoEval.py`**  
+  Evaluates **DEEPSEEK V3** for code generation in 0815 on the same simplistic problem set.  
+  - **Accuracy**: 20.00%  
+  - **Subset**: 15 problems
 
 Interestingly, the LLAMA models are much better at coding in Pyth or Minipy than they are at 0815...
 
@@ -62,6 +66,11 @@ A concise esolang inspired by Python tested on two benchmarks, both HumanEval an
   - **Accuracy**: 10.00%  
   - **Subset**: 30 problems
 
+- **`PythDeepseekEsoEval.py`**  
+  Evaluates **DEEPSEEK V3**  for code generation in Pyth on a simplistic problem set of basic Python problems.  
+  - **Accuracy**: 16.67%  
+  - **Subset**: 30 problems
+  - 
 - **`PythLLAMAEsoEval.py`**  
   Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in Pyth on the same simplistic problem set.  
   - **Accuracy**: 20.00%  
