@@ -29,7 +29,7 @@ A shortened version of Python used as an esolang for benchmarking. Due to relati
   - **Subset**: 15 problems
 
 ### 0815
-0815 is an esolang based around a queue and 3 registers. It only understands hexadecimal, so every numeric input and output is in hexadecimal. Everything that is not an instruction is a comment. 0815 has been tested on two benchmarks, both HumanEval and our own EsoEval (collection of simple problems).
+0815 is an esolang based around a queue and 3 registers. It only understands hexadecimal, so every numeric input and output is in hexadecimal. Everything that is not an instruction is a comment. 0815 has been tested on two benchmarks, both HumanEval and our own EsoEval (collection of simple problems). On average, 7850 tokens were fed in as prompts for in-context learning and there were 300 completion tokens allowed resulting in Total tokens: 8150. 
 
 - **`0815HumanEval.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in 0815 on the HumanEval benchmark with a two-shot approach.  
