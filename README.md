@@ -1,6 +1,6 @@
 # Esolangs Benchmarking with AI Models
 
-This repository evaluates the performance of various AI models on benchmarks for coding in esolangs (esoteric programming languages) , including **Minipy**, **Pyth**, **Janus**, and **0815** using datasets like the HumanEval benchmark and a custom created problem set encompassing 30 of the most basic, simple programs, named, EsoEval.
+This repository evaluates the performance of various AI models on benchmarks for coding in esolangs (esoteric programming languages) , including **Minipy**, **Pyth**, **0815**, and **0815** using datasets like the HumanEval benchmark and a custom created problem set encompassing 30 of the most basic, simple programs, named, EsoEval.
 
 This repository also provides the documentation and examples that were fed in during in-context learning. 
 ---
@@ -12,21 +12,12 @@ A shortened version of Python used as an esolang for benchmarking. Due to relati
 
 - **`MiniPyHumanEval.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in Minipy on the HumanEval benchmark.  
-  - **Accuracy**: 66.67%
-  - **Non executable by Python + Passed**: 0.0%  
-  - **Subset**: 30 problems
 
 - **`MiniPyLLAMAHumanEval.py`**  
   Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in Minipy on the HumanEval benchmark.  
-  - **Accuracy**: 66.67%
-  - **Non executable by Python + Passed**: 10.0%  
-  - **Subset**: 30 problems
 
 - **`MiniPyDeepSeekHumanEval.py`**  
   Evaluates **DEEPSEEK V3** for code generation in Minipy on the HumanEval benchmark.  
-  - **Accuracy**: 15.38%
-  - **Non executable by Python + Passed**: 7.69%
-  - **Subset**: 15 problems
 
 The researcher noticed a stark contrast between the OpenAI code generated and the Deepseek code generated. The Deepseek code had a lower accuracy due to the code generated being clearly Minipy but not compiling due to errors while the OpenAI code was clearly python and had a high accuracy but was also executable by a standard python interpreter. 
 
@@ -35,24 +26,16 @@ The researcher noticed a stark contrast between the OpenAI code generated and th
 
 - **`0815HumanEval.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in 0815 on the HumanEval benchmark with a two-shot approach.  
-  - **Accuracy**: 0.0%
-  - **Subset**: 10 problems
 
 - **`0815EsoEval.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in 0815 on a simplistic problem set of basic Python problems.  
-  - **Accuracy**: 26.67%
-  - **Subset**: 30 problems
 
 - **`0815LLAMAEsoEval.py`**  
-  Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in 0815 on the same simplistic problem set.  
-  - **Accuracy**: 0.00%  
-  - **Subset**: 30 problems
- 
+  Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in 0815 on the same simplistic problem set.
+  
 - **`0815DeepseekEsoEval.py`**  
-  Evaluates **DEEPSEEK V3** for code generation in 0815 on the same simplistic problem set.  
-  - **Accuracy**: 20.00%  
-  - **Subset**: 15 problems
-
+  Evaluates **DEEPSEEK V3** for code generation in 0815 on the same simplistic problem set.
+  
 Interestingly, the LLAMA models are much better at coding in Pyth or Minipy than they are at 0815...
 
 ### Pyth
@@ -60,36 +43,24 @@ A concise esolang inspired by Python tested on two benchmarks, both HumanEval an
 
 - **`PythHumanEval.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in Pyth on the HumanEval benchmark with a two-shot approach.  
-  - **Accuracy**: 0.0%  
-  - **Subset**: 10 problems
 
 - **`PythEsoEval.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in Pyth on a simplistic problem set of basic Python problems.  
-  - **Accuracy**: 10.00%  
-  - **Subset**: 30 problems
 
 - **`PythDeepseekEsoEval.py`**  
   Evaluates **DEEPSEEK V3**  for code generation in Pyth on a simplistic problem set of basic Python problems.  
-  - **Accuracy**: 16.67%  
-  - **Subset**: 30 problems
   - 
 - **`PythLLAMAEsoEval.py`**  
-  Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in Pyth on the same simplistic problem set.  
-  - **Accuracy**: 20.00%  
-  - **Subset**: 30 problems
-
+  Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in Pyth on the same simplistic problem set.
+  
 ### Janus
 A reversible programming language. Since the 0.00% accuracy via OpenAI's gpt-4o-mini was alarming and raised red flags, the researcher also manually pasted in generated code to https://topps.diku.dk/pirc/?id=janusP, where it also failed to compile with the same errors for a subset of 5 problems. 
 
 - **`JanusEsoEval.py`**  
   Evaluates **OpenAI's gpt-4o-mini** for code generation in Pyth on a simplistic problem set of basic Python problems.  
-  - **Accuracy**: 0.00%  
-  - **Subset**: 30 problems
 
 - **`JanusLLAMAEsoEval.py`**  
   Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in Pyth on the same simplistic problem set.  
-  - **Accuracy**: 0.00%  
-  - **Subset**: 30 problems
 
 ---
 
