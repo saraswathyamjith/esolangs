@@ -1,60 +1,158 @@
-# Esolangs Benchmarking with AI Models
+# In-Context Learning for Esoteric Programming Languages: Evaluating and Enhancing LLM Reasoning Without Fine-Tuning 
 
-This repository evaluates the performance of various AI models on benchmarks for coding in esolangs (esoteric programming languages) , including **Minipy**, **Pyth**, **0815**, and **0815** using datasets like the HumanEval benchmark and a custom created problem set encompassing 30 of the most basic, simple programs, named, EsoEval.
+This repository contains scripts for evaluating code in esoteric programming languages (esolangs) against benchmarks.
 
-This repository also provides the documentation and examples that were fed in during in-context learning. 
----
+## Overview
 
-## Benchmarks Overview
+This project provides a framework for evaluating the performance of esoteric programming languages on standard programming benchmarks. We both generate code with language models and support evaluating pre-written code files from agentic sources, making it suitable for comparing different code generation approaches or manual implementations.
 
-### Minipy
-A shortened version of Python used as an esolang for benchmarking. Due to relatively high accuracy on HumanEval, we did not test on the EsoEval collection of simple problems.  
+The repository includes:
+- Evaluation scripts for multiple esoteric languages (0815, Minipy, Pyth, Rhokell)
+- Code samples generated with and without context by agentic AI systems and Large Language Models
+- Standardized evaluation methodology using the HumanEval benchmark and our custom benchmark.
 
-- **`MiniPyHumanEval.py`**  
-  Evaluates **OpenAI's gpt-4o-mini** for code generation in Minipy on the HumanEval benchmark.  
+## Code Generation Methodology
+The standard LLM code samples in this repository were generated using either GPT-4o-mini, GPT-4o, LLAMA-3.3-70B, Deepseek-V3, in February-March 2025.  
 
-- **`MiniPyLLAMAHumanEval.py`**  
-  Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in Minipy on the HumanEval benchmark.  
+The agnetic code samples in this repository were generated using Windsurf, an agentic AI system, in March/April 2025. The prompting was done through an agent directly, instead of being fed through a traditional LLM API, allowing for more interactive and context-aware code generation. Two sets of code were generated:
 
-- **`MiniPyDeepSeekHumanEval.py`**  
-  Evaluates **DEEPSEEK V3** for code generation in Minipy on the HumanEval benchmark.  
+1. **Context Code**: Generated with full contextual information about the esoteric language
+2. **No Context Code**: Generated with minimal information about the language
 
+This allows for comparative analysis of how contextual information affects code generation quality in esoteric languages, across agentic-4o and agentic-claude.
 
-### 0815
-0815 is an esolang based around a queue and 3 registers. It only understands hexadecimal, so every numeric input and output is in hexadecimal. Everything that is not an instruction is a comment. 0815 has been tested on two benchmarks, both HumanEval and our own EsoEval (collection of simple problems). On average, 7850 tokens were fed in as prompts for in-context learning and there were 300 completion tokens allowed resulting in Total tokens: 8150. 
+## Requirements and Dependencies
 
-- **`0815HumanEval.py`**  
-  Evaluates **OpenAI's gpt-4o-mini** for code generation in 0815 on the HumanEval benchmark with a two-shot approach.  
+### Software Requirements
+- Python 3.6+
+- Dependencies listed in `requirements.txt` (install with `pip install -r requirements.txt`)
 
-- **`0815EsoEval.py`**  
-  Evaluates **OpenAI's gpt-4o-mini** for code generation in 0815 on a simplistic problem set of basic Python problems.  
+### Language Interpreters
+Each esoteric language requires its own interpreter:
 
-- **`0815LLAMAEsoEval.py`**  
-  Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in 0815 on the same simplistic problem set.
-  
-- **`0815DeepseekEsoEval.py`**  
-  Evaluates **DEEPSEEK V3** for code generation in 0815 on the same simplistic problem set.
+- **0815**: 
+  - Interpreter: `esolang0815_interpreter.py` 
+  - Source: [GitHub Gist](https://gist.githubusercontent.com/perey/015aeea5c3af016531e9/raw/71b4cbfd16577e349d58a11eefd1cde12d40a2ae/esolang0815_interpreter.py)
+  - Installation: Download the interpreter to the root directory of this repository
 
-  
+- **Pyth**: 
+  - Interpreter: `pyth.py` 
+  - Source: [GitHub Repository](https://github.com/isaacg1/pyth)
+  - Installation: Clone the Pyth repository to the root directory of this repository
+  ```bash
+  git clone https://github.com/isaacg1/pyth.git
+  ```
 
-### Pyth
-A concise esolang inspired by Python tested on two benchmarks, both HumanEval and our own EsoEval (collection of simple problems).
+- **Minipy**: 
+  - Interpreter: Included in the repository
+  - No additional installation required
 
-- **`PythHumanEval.py`**  
-  Evaluates **OpenAI's gpt-4o-mini** for code generation in Pyth on the HumanEval benchmark with a two-shot approach.  
+- **Rhokell**: 
+  - Interpreter: `rhokell` 
+  - Source: [GitHub Repository](https://github.com/pro465/rhokell)
+  - Description: A functional programming language based on rho calculus and Haskell, featuring pattern matching, algebraic data types, and higher-order functions
+  - Installation: Clone and build the Rhokell repository
+  ```bash
+  git clone https://github.com/pro465/rhokell.git
+  cd rhokell
+  cargo build --release
+  ```
+  - Usage: After building, you can run Rhokell code with `./target/release/rhokell path/to/file.rhk`
 
-- **`PythEsoEval.py`**  
-  Evaluates **OpenAI's gpt-4o-mini** for code generation in Pyth on a simplistic problem set of basic Python problems.  
+## Supported Languages
 
-- **`PythDeepseekEsoEval.py`**  
-  Evaluates **DEEPSEEK V3**  for code generation in Pyth on a simplistic problem set of basic Python problems.  
-  - 
-- **`PythLLAMAEsoEval.py`**  
-  Evaluates **Meta's meta-llama/Llama-3.3-70B-Instruct-Turbo** for code generation in Pyth on the same simplistic problem set.
+- **0815**: A queue-based esoteric language with 3 registers
+- **Minipy**: A minimalist version of Python with shortened syntax
+- **Pyth**: A concise, Pythonic code-golfing language
+- **Rhokell**: A functional programming language based on rho calculus and Haskell
 
----
+## Directory Structure
 
-## EsoEval: Simple Problems for Pyth, 0815, and Janus Benchmarks
+- `0815/`: Contains evaluation scripts for 0815
+- `Minipy/`: Contains evaluation scripts for Minipy
+- `Pyth/`: Contains evaluation scripts for Pyth
+- `Rhokell/`: Contains evaluation scripts for Rhokell
+- `context_code/`: Code generated with full context about the language
+  - Organized by language and model
+- `no_context_code/`: Code generated with minimal context about the language
+  - Organized by language and model
+- `code_to_evaluate/`: Directory where code files should be placed for evaluation (examples below: )
+  - `0815/HumanEval/`: Place 0815 code files here for HumanEval
+  - `Rhokell/EsoEval/`: Place Rhokell code files here for EsoEval
+
+## How to Use
+
+1. Place your code files in the appropriate subdirectory of `code_to_evaluate/`
+2. Name your files according to the problem ID (e.g., `HumanEval/0.pyth`, `HumanEval/1.pyth`, etc.)
+3. Run the evaluation script for the language you want to evaluate:
+
+### Agentic HumanEval Benchmarks
+These scripts evaluate code against the HumanEval benchmark:
+
+```bash
+# For Pyth
+python Pyth/PythHumanEval_FromFolder.py
+
+# For 0815
+python 0815/0815HumanEval_FromFolder.py
+
+# For Minipy
+python Minipy/MiniPyHumanEval_FromFolder.py
+
+# For Rhokell HumanEval
+python Rhokell/RhokellHumanEval_FromFolder.py
+```
+
+### Agentic EsoEval Benchmarks
+These scripts evaluate code against a custom set of 30 programming tasks embedded directly in the scripts:
+
+```bash
+# For Pyth EsoEval
+python Pyth/PythEsoEval_FromFolder.py
+
+# For 0815 EsoEval
+python 0815/0815EsoEval_FromFolder.py
+
+# For Minipy EsoEval
+python Minipy/MiniPyEsoEval.py
+
+# For Rhokell EsoEval
+python Rhokell/RhokellEsoEval.py
+```
+
+### Non-Agentic Scripts
+Our scripts (the remaining scripts not mentioned above) evaluating the performance of large language models (non-agentic) were done in Google Colab. The notebook export is in eaxch corresponding folder. To reproduce our experiments using the same compute resources, follow the steps below:
+- Copy the script into a Google Collab notebook
+- Run with Python 3 Runtime  
+- Run with Hardware Accelerator: NVIDIA T4 GPU  
+
+## Dataset
+
+### HumanEval Dataset
+
+- **Source**: The scripts require the HumanEval dataset from OpenAI
+- **Repository**: [https://github.com/openai/human-eval](https://github.com/openai/human-eval)
+- **License**: MIT License
+- **Citation**: Chen, M., Tworek, J., Jun, H., Yuan, Q., Pinto, H. P. D. O., Kaplan, J., ... & Zaremba, W. (2021). Evaluating large language models trained on code. arXiv preprint arXiv:2107.03374.
+
+### Dataset Installation
+
+1. Clone the HumanEval repository:
+   ```bash
+   git clone https://github.com/openai/human-eval.git
+   ```
+
+2. Extract the dataset:
+   ```bash
+   gunzip human-eval/data/HumanEval.jsonl.gz
+   ```
+
+3. Copy or link the dataset to the `data/` directory:
+   ```bash
+   cp human-eval/data/HumanEval.jsonl data/
+   ```
+
+## EsoEval Dataset: Simple Problems for Pyth, 0815, and Janus Benchmarks
 
 Below is the problem set used for evaluating esolangs that are more divergent from standard languages. The problem set was tested via OPENAI's gpt-4o-mini which achieved a 93.33% accuracy in Python. Since it achieved such high accuracy, these problems are able to be labeled as a standard, simple benchmark. 
 
@@ -89,7 +187,17 @@ Below is the problem set used for evaluating esolangs that are more divergent fr
 29. Given a string `s`, return the string in title case.
 30. Given two numbers  `a` and `b`, return True if a is divisible by b, else False.
 
-**CITATIONS for documentation/examples**
+## Reproducibility
+
+To ensure reproducibility of results, follow these steps:
+
+1. Install all dependencies as specified in the Requirements section
+2. Download the HumanEval dataset and place it in the `data/` directory
+3. Install the language interpreters as described
+4. Place your code files in the appropriate directories following the naming conventions
+5. Run the evaluation scripts as described in the "How to Use" section
+
+## Documentation & Examples Sources
 0815 examples & documentation:
 Jorente, P. (n.d.). 0815. In Poncho esolang. Retrieved May 21, 2025, from http://paulo-jorente.de/poncho/esolang/0815/
 All 0815 examples and documentation were drawn from the official 0815 website. 
@@ -105,3 +213,4 @@ All Pyth examples and documentation were drawn from the official Rhokell git.
 Minipy documentation:
 Esolangs Wiki. (n.d.). Minipy. Retrieved May 21, 2025, from https://esolangs.org/wiki/Minipy
 All minipy examples were generated by researchers. 
+
